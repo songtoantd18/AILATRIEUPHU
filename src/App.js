@@ -1,4 +1,5 @@
 import Body from "./components/Body";
+import "./styles/index.css";
 import { useState } from "react";
 import Header from "./components/Header";
 

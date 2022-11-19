@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap");
+
+* {
+  font-family: "Nova Mono", monospace;
+  text-transform: capitalize;
+}
+.main {
+  background-color: rgba(29, 26, 26);
+}
+.choice-container {
+  background-color: blue;
+  display: flex;
+  margin-bottom: 0.8rem;
+  border-radius: 4px;
+  font-size: 3rem;
+  min-width: 80rem;
+}
+.choice-container:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(6, 103, 247, 0.5);
+  transform: scale(1.02);
+  transition: transform 0.5s;
+  background-color: #00ff00;
+  color: #ff3333;
+}
+.choice-prefix {
+  padding: 2rem 2.5rem;
+  color: white;
+  /* background-color: red; */
+}
+.question {
+  font-size: 5.4rem;
+  color: white;
+  margin-bottom: 5rem;
+  text-align: center;
+}
+.showResult {
+  text-align: center;
+  background-color: rgba(29, 26, 26);
+  height: 100vh;
+  font-size: 12rem;
+  color: #00ff00;
+  margin-bottom: 5rem;
+}
+.showResult:hover {
+  cursor: pointer;
+  box-shadow: 0 0.4rem 1.4rem 0 rgba(6, 103, 247, 0.5);
+  transform: scale(1.02);
+  transition: transform 0.5s;
+  background-color: black;
+  color: #ff3333;
+}
+.numberQuestion {
+  text-align: left;
+  font-size: 3rem;
+  color: red;
+}

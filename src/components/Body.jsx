@@ -1,21 +1,31 @@
 import React, { useState } from "react";
-// import { questions } from "../constant/questions";
 import { questions } from "./../constant/questions";
+import correctAudio from "../audio/correctAudio.mp3";
+import incorrectAudio from "../audio/incorrectAudio.mp3";
+import intro from "../audio/intro.mp3";
 
 const Body = () => {
+  const introLogin = new Audio(intro);
+  const audioCorrect = new Audio(correctAudio);
+  const audioInCorrect = new Audio(incorrectAudio);
+
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const handleAnswerButtonClick = (isCorrect) => {
     console.log("isCorrect:", isCorrect);
     if (isCorrect && score < questions.length - 1) {
+      audioCorrect.play();
       setScore(score + 1);
     }
     if (isCorrect && score === questions.length - 1) {
       alert("you win");
+      introLogin.play();
+
       setScore(score + 1);
     }
     if (!isCorrect) {
+      audioInCorrect.play();
       setShowScore(true);
       alert("you lose");
     }
@@ -34,30 +44,35 @@ const Body = () => {
   };
 
   return (
-    <div>
+    <div className="main">
       <div>
         {showScore ? (
-          <div>
-            {" "}
-            diem cua ban la {score} tren tong so {questions.length}{" "}
+          <div className="showResult">
+            your scored {score} out of {questions.length}{" "}
           </div>
         ) : (
           <>
-            <div>
+            <div className="numberQuestion">
               <span> questions {currentQuestion + 1} </span>/{questions.length}
             </div>
-            <div>{questions[currentQuestion].questionText}</div>
+            <div className="question">
+              {questions[currentQuestion].questionText}
+            </div>
             {questions[currentQuestion].answerOptions.map(
               (answerOptions, index) => {
                 return (
-                  <button
-                    onClick={() =>
-                      handleAnswerButtonClick(answerOptions.isCorrect)
-                    }
-                    key={index}
-                  >
-                    {answerOptions.answerText}
-                  </button>
+                  <div className="choice-container">
+                    <div className="choice-prefix">{index}.</div>
+                    <div
+                      key={index}
+                      className="choice-prefix"
+                      onClick={() =>
+                        handleAnswerButtonClick(answerOptions.isCorrect)
+                      }
+                    >
+                      {answerOptions.answerText}
+                    </div>
+                  </div>
                 );
               }
             )}
