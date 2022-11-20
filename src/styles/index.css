@@ -3,6 +3,8 @@
 * {
   font-family: "Nova Mono", monospace;
   text-transform: capitalize;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .main {
   background-color: rgba(29, 26, 26);

@@ -1,8 +1,7 @@
 import Body from "./components/Body";
-import DeleteRandom from "./components/DeleteRandom";
 import Login from "./components/Login";
 import "./styles/index.css";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import Login1 from "./components/Login1";
 function App() {
   const [isLogin, setIsLogin] = useState(false);
