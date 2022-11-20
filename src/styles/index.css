@@ -55,3 +55,65 @@
   font-size: 3rem;
   color: red;
 }
+@media screen and (max-width: 768px) {
+  .choice-container {
+    min-width: 40rem;
+  }
+}
+.skip {
+  width: 10rem;
+  height: 7.5rem;
+  font-size: 3rem;
+  text-transform: uppercase;
+  background-color: #00ff00;
+}
+.skipHide {
+  width: 10rem;
+  height: 7.5rem;
+  font-size: 3rem;
+  text-transform: uppercase;
+  background-color: red;
+}
+.login {
+  text-align: center;
+  color: #00ff00;
+  background-color: black;
+}
+/* ////////////////////////////// */
+.inputText > p {
+  position: absolute;
+
+  bottom: -18px;
+
+  left: 115px;
+
+  white-space: nowrap;
+
+  color: #f90c0c;
+}
+
+.inputText--error > label {
+  color: #f90c0c;
+}
+
+.inputText--error > input,
+.inputText--error > input:focus-visible {
+  border-color: #f90c0c;
+}
+
+.inputText--valid > label {
+  color: #04be00;
+}
+
+.inputText--valid > input,
+.inputText--valid > input:focus-visible {
+  border-color: #04be00;
+}
+.btn-login {
+  background-color: black;
+  color: #00ff00;
+}
+.btn-login:disabled {
+  background-color: #f90c0c;
+  color: yellow;
+}

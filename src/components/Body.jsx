@@ -3,12 +3,12 @@ import { questions } from "./../constant/questions";
 import correctAudio from "../audio/correctAudio.mp3";
 import incorrectAudio from "../audio/incorrectAudio.mp3";
 import intro from "../audio/intro.mp3";
+import Login from "./Login";
 
 const Body = () => {
   const introLogin = new Audio(intro);
   const audioCorrect = new Audio(correctAudio);
   const audioInCorrect = new Audio(incorrectAudio);
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
@@ -42,6 +42,16 @@ const Body = () => {
     }
     console.log("nextQuestion:", nextQuestion);
   };
+  const [isSkip, setIsSkip] = useState(true);
+  const handleSkip = (currentQuestion) => {
+    if (isSkip) {
+      setCurrentQuestion(currentQuestion + 1);
+      setIsSkip(false);
+    }
+
+    // console.log("currentQuestion:", currentQuestion);
+    // console.log("1:", 1);
+  };
 
   return (
     <div className="main">
@@ -55,27 +65,35 @@ const Body = () => {
             <div className="numberQuestion">
               <span> questions {currentQuestion + 1} </span>/{questions.length}
             </div>
+            <div>
+              {isSkip ? (
+                <button
+                  className="skip"
+                  onClick={() => handleSkip(currentQuestion)}
+                >
+                  {isSkip ? "skip" : "not skip"}
+                </button>
+              ) : (
+                <></>
+              )}
+            </div>
             <div className="question">
               {questions[currentQuestion].questionText}
             </div>
-            {questions[currentQuestion].answerOptions.map(
-              (answerOptions, index) => {
-                return (
-                  <div className="choice-container">
-                    <div className="choice-prefix">{index}.</div>
-                    <div
-                      key={index}
-                      className="choice-prefix"
-                      onClick={() =>
-                        handleAnswerButtonClick(answerOptions.isCorrect)
-                      }
-                    >
-                      {answerOptions.answerText}
-                    </div>
+            {questions[currentQuestion].answerOptions.map((item, index) => {
+              console.log("item:", item);
+              return (
+                <div className="choice-container" key={item.id}>
+                  <div className="choice-prefix">{questions[index].id}.</div>
+                  <div
+                    className="choice-prefix"
+                    onClick={() => handleAnswerButtonClick(item.isCorrect)}
+                  >
+                    {item.answerText}
                   </div>
-                );
-              }
-            )}
+                </div>
+              );
+            })}
           </>
         )}
       </div>
