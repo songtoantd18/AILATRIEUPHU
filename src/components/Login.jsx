@@ -31,7 +31,7 @@ const Login = (props) => {
     <div className="login">
       who want to be milionaire
       <form>
-        <h3>name : </h3>
+        <h3>what's your name : </h3>
         <input type="text" name="name" onChange={handleChange} />
 
         {/* <button type="submit" onClick={handleSubmit}>
