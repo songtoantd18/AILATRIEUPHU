@@ -6,6 +6,7 @@
   overflow-y: hidden;
   overflow-x: hidden;
   box-sizing: border-box;
+  user-select: none;
 }
 .main {
   background-color: rgba(29, 26, 26);

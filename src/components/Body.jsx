@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { questions } from "./../constant/questions";
 import correctAudio from "../audio/correctAudio.mp3";
 import incorrectAudio from "../audio/incorrectAudio.mp3";
 import intro from "../audio/intro.mp3";
 import Login from "./Login";
+import { Context } from "../context/Context";
 
 const Body = () => {
+  const [userLogin, setUserLogin] = useContext(Context);
+  console.log("userLogin o login:", userLogin);
+  console.log("Context:", Context);
+  console.log("userLogin:", userLogin);
   const introLogin = new Audio(intro);
   const audioCorrect = new Audio(correctAudio);
   const audioInCorrect = new Audio(incorrectAudio);
@@ -17,6 +22,7 @@ const Body = () => {
     if (isCorrect && score < questions.length - 1) {
       audioCorrect.play();
       setScore(score + 1);
+      setUserLogin(userLogin);
     }
     if (isCorrect && score === questions.length - 1) {
       alert("you win");
@@ -58,10 +64,13 @@ const Body = () => {
       <div>
         {showScore ? (
           <div className="showResult">
-            your scored {score} out of {questions.length}{" "}
+            {console.log("userLogin o duoi:", userLogin.name)}
+            người chơi {userLogin.name} đạt được {score} trên tổng số{"    "}
+            {questions.length}
           </div>
         ) : (
           <>
+            {/* <div> người chơi :{userLogin}</div> */}
             <div className="numberQuestion">
               <span> questions {currentQuestion + 1} </span>/{questions.length}
             </div>
@@ -81,13 +90,17 @@ const Body = () => {
               {questions[currentQuestion].questionText}
             </div>
             {questions[currentQuestion].answerOptions.map((item, index) => {
-              console.log("item:", item);
+              // console.log("item:", item);
               return (
-                <div className="choice-container" key={item.id}>
+                <div
+                  className="choice-container"
+                  key={item.id}
+                  onClick={() => handleAnswerButtonClick(item.isCorrect)}
+                >
                   <div className="choice-prefix">{questions[index].id}.</div>
                   <div
                     className="choice-prefix"
-                    onClick={() => handleAnswerButtonClick(item.isCorrect)}
+                    // onClick={() => handleAnswerButtonClick(item.isCorrect)}
                   >
                     {item.answerText}
                   </div>
