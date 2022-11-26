@@ -22,20 +22,12 @@ const Login = (props) => {
     });
   };
 
-  /////////////
-  // function sayHello() {
-  //   const handleSubmit = (e) => {
-  //     console.log("1:", 1);
-  //     readyIntro.play();
-  //     e.preventDefault();
-  //     props.onLogin(details);
-  //   };
-  // }
-  // setTimeout(sayHello, 1000);
   const handleSubmit = (e) => {
     readyIntro.play();
     e.preventDefault();
-    props.onLogin(details);
+    setTimeout(() => {
+      props.onLogin(details);
+    }, 3000);
   };
   return (
     <div className="login">

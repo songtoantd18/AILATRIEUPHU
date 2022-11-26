@@ -1,19 +1,16 @@
 import React, { useState, useContext } from "react";
-import {
-  questions,
-  correctAnswer,
-  listQuestion,
-} from "./../constant/questions";
+import { questions } from "./../constant/questions";
 import correctAudio from "../audio/correctAudio.mp3";
 import incorrectAudio from "../audio/incorrectAudio.mp3";
 import intro from "../audio/intro.mp3";
 import hide from "../audio/hide.mp3";
-
-// import Login from "./Login";
 import { Context } from "../context/Context";
 
 const Body = () => {
-  const [isSelectHide, setIsSelectHide] = useState(false);
+  // const [isSelectHide, setIsSelectHide] = useState(false);
+  // const [isChangehide, setIsChangehide] = useState(true);
+
+  /////////////////
   const [userLogin, setUserLogin] = useContext(Context);
   const [isSkip, setIsSkip] = useState(true);
   const [isHide, setIsHide] = useState(true);
@@ -23,6 +20,15 @@ const Body = () => {
   const audioInCorrect = new Audio(incorrectAudio);
   const hide50 = new Audio(hide);
 
+  //////////////////////////
+  let classHide = "choice-container";
+
+  // if (isChangehide) {
+  //   classHide = "choice-container";
+  // } else {
+  //   classHide = "hide";
+  // }
+  //////////////////////////////////
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const handleAnswerButtonClick = (isCorrect) => {
@@ -69,11 +75,15 @@ const Body = () => {
       );
       console.log("answerOptionsHide:", answerOptionsHide);
       for (var i = 0; i < answerOptionsHide.length - 1; i++) {
-        console.log("answerOptionsHide[i].answerText:", answerOptionsHide[i]);
         answerOptionsHide[i].answerText = "";
-      }
 
-      if (setIsHide) {
+        if (answerOptionsHide[i].answerText.length === 0) {
+          classHide = "hide";
+        } else classHide = "choice-container";
+      }
+      // setIsChangehide(true);
+
+      if (isHide) {
         setIsHide(false);
       }
     }
@@ -130,7 +140,7 @@ const Body = () => {
             {questions[currentQuestion].answerOptions.map((item, index) => {
               return (
                 <div
-                  className="choice-container"
+                  className={classHide}
                   key={item.id}
                   onClick={() => handleAnswerButtonClick(item.isCorrect)}
                 >
