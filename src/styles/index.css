@@ -3,7 +3,7 @@
 * {
   font-family: "Nova Mono", monospace;
   text-transform: capitalize;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   overflow-x: hidden;
   box-sizing: border-box;
   user-select: none;
@@ -31,6 +31,10 @@
   padding: 2rem 2.5rem;
   color: white;
   /* background-color: red; */
+}
+.skill {
+  display: flex;
+  flex-direction: row;
 }
 .question {
   font-size: 5.4rem;
@@ -70,6 +74,10 @@
   font-size: 3rem;
   text-transform: uppercase;
   background-color: #00ff00;
+}
+.skip:hover {
+  background-color: aqua;
+  cursor: pointer;
 }
 .skipHide {
   width: 10rem;
@@ -134,4 +142,8 @@ form > button {
 .btn-login:disabled {
   background-color: #f90c0c;
   color: yellow;
+}
+.hide {
+  display: none;
+  background-color: red;
 }
