@@ -146,4 +146,5 @@ form > button {
 .hide {
   display: none;
   background-color: red;
+  color: black;
 }

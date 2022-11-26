@@ -7,6 +7,8 @@ import {
 import correctAudio from "../audio/correctAudio.mp3";
 import incorrectAudio from "../audio/incorrectAudio.mp3";
 import intro from "../audio/intro.mp3";
+import hide from "../audio/hide.mp3";
+
 // import Login from "./Login";
 import { Context } from "../context/Context";
 
@@ -19,10 +21,11 @@ const Body = () => {
   const introLogin = new Audio(intro);
   const audioCorrect = new Audio(correctAudio);
   const audioInCorrect = new Audio(incorrectAudio);
+  const hide50 = new Audio(hide);
+
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const handleAnswerButtonClick = (isCorrect) => {
-    console.log("isCorrect:", isCorrect);
     if (isCorrect && score < questions.length - 1) {
       audioCorrect.play();
       setScore(score + 1);
@@ -31,7 +34,6 @@ const Body = () => {
     if (isCorrect && score === questions.length - 1) {
       alert("you win");
       introLogin.play();
-
       setScore(score + 1);
     }
     if (!isCorrect) {
@@ -39,10 +41,13 @@ const Body = () => {
       setShowScore(true);
       alert("you lose");
     }
-
     const nextQuestion = currentQuestion + 1;
+
     if (nextQuestion < questions.length) {
-      setCurrentQuestion(nextQuestion);
+      function timeChangeQuestion() {
+        setCurrentQuestion(nextQuestion);
+      }
+      setTimeout(timeChangeQuestion, 3000);
     } else {
       setShowScore(true);
     }
@@ -56,20 +61,24 @@ const Body = () => {
     }
   };
   const handleHide = (currentQuestion) => {
-    const answerOptionsHide = questions[currentQuestion].answerOptions.filter(
-      (item, index) => {
-        return item.isCorrect === false;
+    function Hide() {
+      const answerOptionsHide = questions[currentQuestion].answerOptions.filter(
+        (item, index) => {
+          return item.isCorrect === false;
+        }
+      );
+      console.log("answerOptionsHide:", answerOptionsHide);
+      for (var i = 0; i < answerOptionsHide.length - 1; i++) {
+        console.log("answerOptionsHide[i].answerText:", answerOptionsHide[i]);
+        answerOptionsHide[i].answerText = "";
       }
-    );
-    console.log("answerOptionsHide:", answerOptionsHide);
-    for (var i = 0; i < answerOptionsHide.length - 1; i++) {
-      console.log("i:", i);
-      answerOptionsHide[i].answerText = "";
-    }
 
-    if (setIsHide) {
-      setIsHide(false);
+      if (setIsHide) {
+        setIsHide(false);
+      }
     }
+    setTimeout(Hide, 4000);
+    hide50.play();
   };
 
   return (
