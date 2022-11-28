@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Button from "./Button";
 import { validEmail, validPassword } from "../constant/Regex";
 import ready from "../audio/ready.mp3";
+// import { RandomQuestion } from "../constant/RandomQuestion";
+// import { questionsBase } from "../constant/RandomQuestion";
 
 const Login = (props) => {
   const readyIntro = new Audio(ready);
@@ -26,6 +28,7 @@ const Login = (props) => {
     readyIntro.play();
     e.preventDefault();
     setTimeout(() => {
+      // RandomQuestion(questionsBase);
       props.onLogin(details);
     }, 3000);
   };

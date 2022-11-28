@@ -136,6 +136,7 @@ form > button {
   border-color: #04be00;
 }
 .btn-login {
+  width: 20vw;
   background-color: black;
   color: #00ff00;
 }
@@ -147,4 +148,10 @@ form > button {
   display: none;
   background-color: red;
   color: black;
+}
+.Infor-user {
+  background-color: rgba(29, 26, 26);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
