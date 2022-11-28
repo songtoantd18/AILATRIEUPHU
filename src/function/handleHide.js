@@ -15,8 +15,7 @@ export const handleHide = (
     );
     console.log("answerOptionsHide:", answerOptionsHide);
     for (var i = 0; i < answerOptionsHide.length - 1; i++) {
-      setRefresh(...answerOptionsHide[i].answerText);
-      console.log("refresh:", refresh);
+      answerOptionsHide[i].answerText = "";
     }
 
     if (isHide) {
