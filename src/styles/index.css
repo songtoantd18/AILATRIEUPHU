@@ -3,21 +3,24 @@
 * {
   font-family: "Nova Mono", monospace;
   text-transform: capitalize;
-  /* overflow-y: hidden; */
-  overflow-x: hidden;
+  overflow: hidden;
+
   box-sizing: border-box;
   user-select: none;
 }
 .main {
+  width: 100%;
+  height: 100%;
   background-color: rgba(29, 26, 26);
 }
 .choice-container {
+  min-height: 50%;
   background-color: blue;
   display: flex;
   margin-bottom: 0.8rem;
   border-radius: 4px;
-  font-size: 3rem;
-  min-width: 80rem;
+  font-size: 40px;
+  min-width: 100%;
 }
 .choice-container:hover {
   cursor: pointer;
@@ -28,18 +31,19 @@
   color: #ff3333;
 }
 .choice-prefix {
+  height: 10%;
   padding: 2rem 2.5rem;
   color: white;
-  /* background-color: red; */
 }
 .skill {
   display: flex;
   flex-direction: row;
 }
 .question {
-  font-size: 5.4rem;
+  /* background-color: red; */
+  font-size: 50px;
   color: white;
-  margin-bottom: 5rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 .showResult {
@@ -86,25 +90,22 @@
   text-transform: uppercase;
   background-color: red;
 }
-form > input {
+form > div > input {
+  /* background-color: red; */
   width: 80vw;
   height: 20vh;
   font-size: 5rem;
 }
-form > button {
+form > div > button {
   font-size: 5rem;
 
   width: 8vw;
   height: 20vh;
 }
-.login {
-  text-align: center;
-  background-color: rgba(29, 26, 26);
-  height: 100vh;
-  font-size: 5rem;
-  color: #00ff00;
-  margin-bottom: 5rem;
+.containerLogin {
+  overflow: hidden;
 }
+
 /* ////////////////////////////// */
 .inputText > p {
   position: absolute;
@@ -118,31 +119,29 @@ form > button {
   color: #f90c0c;
 }
 
-.inputText--error > label {
-  color: #f90c0c;
-}
-
-.inputText--error > input,
-.inputText--error > input:focus-visible {
-  border-color: #f90c0c;
-}
-
-.inputText--valid > label {
-  color: #04be00;
-}
-
-.inputText--valid > input,
-.inputText--valid > input:focus-visible {
-  border-color: #04be00;
+.login {
+  text-align: center;
+  background-color: rgba(29, 26, 26);
+  height: 100vh;
+  font-size: large;
+  color: #00ff00;
+  margin-bottom: 5rem;
 }
 .btn-login {
-  width: 20vw;
+  font-size: 50px;
+  width: 15%;
+  height: 30%;
   background-color: black;
   color: #00ff00;
 }
 .btn-login:disabled {
   background-color: #f90c0c;
   color: yellow;
+}
+.FormLogin {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 .hide {
   display: none;

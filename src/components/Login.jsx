@@ -33,19 +33,27 @@ const Login = (props) => {
     }, 3000);
   };
   return (
-    <div className="login">
-      who want to be milionaire
-      <form>
+    <div className="containerLogin">
+      <div className="login">
+        who want to be milionaire
         <h3>what's your name : </h3>
-        <input type="text" name="name" onChange={handleChange} />
-
-        <Button
-          disabled={text.length < 3 || text.length > 19}
-          onChange={() => handleBtn()}
-          text="Ready"
-          onClick={handleSubmit}
-        />
-      </form>
+        <form>
+          <div className="FormLogin">
+            <input
+              className="input"
+              type="text"
+              name="name"
+              onChange={handleChange}
+            />
+            <Button
+              disabled={text.length < 3 || text.length > 19}
+              onChange={() => handleBtn()}
+              text="Ready"
+              onClick={handleSubmit}
+            />
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

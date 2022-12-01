@@ -37,68 +37,8 @@ const Body = () => {
   }
   if (isHide && currentQuestion === questions.length - 1) {
     setIsHide(false);
-    // setIsHide(false) gia trị trở về ẩn nút hide
   }
-  // const handleAnswerButtonClick = (isCorrect) => {
-  //   if (isCorrect && score < questions.length - 1) {
-  //     audioCorrect.play();
-  //     setScore(score + 1);
-  //     setUserLogin(userLogin);
-  //   }
-  //   if (isCorrect && score === questions.length - 1) {
-  //     alert("you win");
-  //     introLogin.play();
-  //     setScore(score + 1);
-  //   }
-  //   if (!isCorrect) {
-  //     audioInCorrect.play();
-  //     setShowScore(true);
-  //     alert("you lose");
-  //   }
-  //   const nextQuestion = currentQuestion + 1;
 
-  //   if (nextQuestion < questions.length) {
-  //     function timeChangeQuestion() {
-  //       setCurrentQuestion(nextQuestion);
-  //     }
-  //     setTimeout(timeChangeQuestion, 3000);
-  //   } else {
-  //     setShowScore(true);
-  //   }
-  //   console.log("nextQuestion:", nextQuestion);
-  // };
-
-  // const handleSkip = (
-  //   currentQuestion,
-  //   isSkip,
-  //   setCurrentQuestion,
-  //   setIsSkip
-  // ) => {
-  //   if (isSkip) {
-  //     setCurrentQuestion(currentQuestion + 1);
-  //     setIsSkip(false);
-  //   }
-  // };
-  // const handleHide = (currentQuestion) => {
-  //   function Hide() {
-  //     const answerOptionsHide = questions[currentQuestion].answerOptions.filter(
-  //       (item, index) => {
-  //         return item.isCorrect === false;
-  //       }
-  //     );
-  //     console.log("answerOptionsHide:", answerOptionsHide);
-  //     for (var i = 0; i < answerOptionsHide.length - 1; i++) {
-  //       setRefresh(...answerOptionsHide[i].answerText);
-  //       console.log("refresh:", refresh);
-  //     }
-
-  //     if (isHide) {
-  //       setIsHide(false);
-  //     }
-  //   }
-  //   setTimeout(Hide, 4000);
-  //   hide50.play();
-  // };
   return (
     <div className="main">
       <div>
@@ -191,10 +131,6 @@ const Body = () => {
                   }
                 >
                   <div className="choice-prefix">{ANSWER[index]}.</div>
-                  <div className="choice-prefix">
-                    {console.log("index.id:", index)}
-                  </div>
-
                   <div className="choice-prefix">{item.answerText}</div>
                 </div>
               );
