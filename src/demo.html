@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Who Wants to Be a Millionaire</title>
+  <!-- Link Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .question {
+      grid-column: span 2;
+      margin-bottom: 20px;
+    }
+
+    .options {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+    }
+
+    .option {
+      display: flex;
+      align-items: center;
+    }
+
+    .option input {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Who Wants to Be a Millionaire</h1>
+    <div class="question">
+      <p>Question 1: What is the capital of France?</p>
+    </div>
+    <div class="options">
+      <div class="option">
+        <input type="radio" id="optionA" name="answer" value="A" class="form-check-input">
+        <label for="optionA" class="form-check-label">A) London</label>
+      </div>
+      <div class="option">
+        <input type="radio" id="optionB" name="answer" value="B" class="form-check-input">
+        <label for="optionB" class="form-check-label">B) Paris</label>
+      </div>
+      <div class="option">
+        <input type="radio" id="optionC" name="answer" value="C" class="form-check-input">
+        <label for="optionC" class="form-check-label">C) Rome</label>
+      </div>
+      <div class="option">
+        <input type="radio" id="optionD" name="answer" value="D" class="form-check-input">
+        <label for="optionD" class="form-check-label">D) Berlin</label>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,21 +1,53 @@
-import Body from "./components/Body";
-import Login from "./components/Login";
-import "./styles/index.css";
-import { useState } from "react";
-import { Context } from "./context/Context";
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link,
+  useNavigate,
+} from "react-router-dom";
+import HomeScreen from "./page/homeScreen";
+import LoginPage from "./page/loginPage";
+import NotFound from "./page/NotFound";
+import "../src/styles/index.css";
 
-function App() {
-  const [user, setUser] = useState("son g toan");
-  const [isLogin, setIsLogin] = useState(false);
-  const handleLogin = (details) => {
-    setIsLogin(!isLogin);
-    setUser(details);
-  };
+// Component HomeScreen
+// const HomeScreen = () => {
+//   return (
+//     <div>
+//       <h1>Home Screen</h1>
+//       <p>This is the home screen.</p>
+//     </div>
+//   );
+// };
+
+// // Component Login
+// const Login = () => {
+//   const navigate = useNavigate();
+
+//   const goToHomeScreen = () => {
+//     navigate("/homescreen");
+//   };
+
+//   return (
+//     <div>
+//       <h1>Login</h1>
+//       <p>This is the login page.</p>
+//       <button onClick={goToHomeScreen}>Go to Home Screen</button>
+//     </div>
+//   );
+// };
+
+const App = () => {
   return (
-    <Context.Provider value={[user, setUser]}>
-      {isLogin ? <Body /> : <Login onLogin={handleLogin} />}
-      {/* <Body /> */}
-    </Context.Provider>
+    <Router>
+      <Routes>
+        <Route path="/homescreen" element={<HomeScreen />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   );
-}
+};
+
 export default App;
