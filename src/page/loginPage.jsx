@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import handleLogin from "../function/loginFunction";
 import { useNavigate } from "react-router"; // Thay đổi import
+import { getApi } from "../function/actionApi";
+import { setItem } from "../function/actionLocal";
+import { urlListQuestion } from "../constant/data";
 
 const LoginPage = () => {
   const navigate = useNavigate(); // Sử dụng useNavigate thay vì useHistory
-  console.log("🚀 ~ LoginPage ~ navigate:", navigate);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const allQuestions = getApi(urlListQuestion).then((questions) => {
+    // console.log(questions.data);
+    setItem("questionsList", questions.data);
+
+    return questions.data;
+  });
+  // console.log("🚀 ~ allQuestions ~ allQuestions:", allQuestions);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -18,6 +27,7 @@ const LoginPage = () => {
         // Chuyển hướng sang trang homescreen sau khi đăng nhập thành công
         navigate("/homescreen");
       } else {
+        alert("Tài khoản không chính xác");
         console.log("Đăng nhập không thành công");
       }
     } catch (error) {

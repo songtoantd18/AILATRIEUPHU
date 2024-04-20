@@ -1,0 +1,95 @@
+.options {
+  display: flex;
+  /* flex-direction: column;
+    gap: 10px; */
+  flex-wrap: wrap;
+}
+
+.btn-option {
+  background-color: #f8f9fa;
+  color: #212529;
+  border-color: #adb5bd;
+  transition: all 0.3s ease;
+}
+
+.btn-option:hover {
+  background-color: #ffc107;
+  /* Màu vàng khi hover */
+  color: #212529;
+  border-color: #ffc107;
+}
+
+.btn-option.active {
+  background-color: #dc3545;
+  /* Màu đỏ khi được click */
+  color: #fff;
+  border-color: #dc3545;
+}
+
+.item {
+}
+.wrong-answer {
+  /* background-color: yellow !important; */
+  /* color: white; */
+  animation: blink 0.2s infinite ease;
+  /* color: red; */
+}
+@keyframes blink {
+  0%,
+  50% {
+    background-color: yellow;
+    color: black;
+  }
+  51%,
+  100% {
+    background-color: #00ff00;
+    color: black;
+  }
+}
+
+.btn-option {
+  background-color: #0000ff;
+
+  color: #fff;
+
+  transition: all 0.5s ease;
+  font-size: 50px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  width: 45%;
+  height: 25vh;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Nova+Mono&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  font-family: "Nova Mono", monospace;
+}
+
+.question {
+  font-size: 50px;
+  text-align: center;
+  font-size: 3vw;
+}
+
+.title {
+  font-size: 4vw;
+  /* Kích thước chữ */
+  color: #333;
+  /* Màu chữ */
+  text-align: center;
+  /* Canh giữa theo chiều ngang */
+  text-transform: uppercase;
+  /* Chuyển đổi chữ thành in hoa */
+  letter-spacing: 2px;
+  /* Khoảng cách giữa các ký tự */
+  font-weight: bold;
+  /* Đậm */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  /* Đổ bóng chữ */
+}
