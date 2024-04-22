@@ -6,7 +6,7 @@ import {
   Link,
   useNavigate,
 } from "react-router-dom";
-import HomeScreen from "./page/HomeScreen";
+import HomeScreen from "./page/homeScreen";
 import LoginPage from "./page/loginPage";
 import NotFound from "./page/NotFound";
 import "../src/styles/index.css";
